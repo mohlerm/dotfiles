@@ -25,5 +25,9 @@ running on a Thinkpad X1 Carbon
 
 Check out the .i3/config for more.
 
+##Screenshots
+![i3 terminal](http://mohlerm.ch/img/i3_terminal.jpg)
+![i3 nautilus](http://mohlerm.ch/img/i3_nautilus.jpg)
+![i3 chrome](http://mohlerm.ch/img/i3_chrome.jpg)
 
 # slim Configuration
