@@ -18,18 +18,22 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 #font pango:DejaVu Sans Mono 10
-font pango: Cantarell Bold 10
+#font pango: Cantarell Bold 10
+font pango: Share Tech Bold 10
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
+
+# start a filemanager
+bindsym $mod+Shift+Return exec --no-startup-id nautilus
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -188,7 +192,7 @@ bar {
         	focused_workspace   $grey       $lgrey        $red
         	active_workspace    $grey       $grey        $lgrey
         	inactive_workspace  $grey       $grey        $lgrey
-        	urgent_workspace    $grey        $lgre        $red
+        	urgent_workspace    $grey        $red        $lgrey
     }
 }
 
@@ -246,6 +250,7 @@ bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
 
+# display monitor settings
 exec --no-startup-id xset dpms 300 600 900 &
 
 # $mod+n reserved for close all notifications
