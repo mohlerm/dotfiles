@@ -97,21 +97,16 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspace names
-workspace "1:bash" output LVDS1
-workspace "2:www" output LVDS1
-workspace "3:pdf" output LVDS1
-workspace "4:code" output LVDS1
-
 set $ws1  1:bash
 set $ws2  2:www
 set $ws3  3:pdf
 set $ws4  4:code
 set $ws5  5:com
-set $ws6  6:ws6
+set $ws6  6:steam
 set $ws7  7:ws7
 set $ws8  8:ws8
 set $ws9  9:ws9
-set $ws10 10:ws10
+set $ws10 10:dp1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -136,6 +131,11 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+# workspace management
+# workspace $ws1 output LVDS1
+# workspace 10 automatically displays on an external monitor connected to the display port (for presentation purposes)
+workspace $ws10 output DP1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -202,21 +202,27 @@ bindsym $mod2+Tab focus right
 bindsym $mod2+Shift+Tab focus left
 bindsym $mod+Tab workspace back_and_forth
 
-# Assign gnome-terminals to workspace 2
+# Assign some applications to certain workspaces
+# use xprop to figure out the class variable
 #assign [class="Gnome-terminal"] $ws1
 assign [class="Google-chrome-stable"] $ws2
 assign [class="Evince"] $ws3
 assign [class="Pidgin"] $ws5
 assign [class="Ts3client_linux_amd64"] $ws5
 assign [class="Sublime_text"] $ws4
+assign [class="jetbrains-android-studio"] $ws4
 assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws5
 assign [class="Xchat"] $ws5
+assign [class="Steam"] $ws6
 
-# enable floating mode for all XTerm windows
-for_window [class="Gcalctool"] floating enable
+# disable borders for some applications
 for_window [class="^Google-chrome-stable$"] border none
 for_window [class="Nautilus"] border none
+for_window [class="Steam"] border none
+
+# enable floating mode for some applications
 for_window [class="file_progress"] floating enable
+for_window [class="Gcalctool"] floating enable
 
 # i3clock settings
 bindsym $mod+Escape exec i3lock
@@ -224,6 +230,7 @@ bindsym XF86ScreenSaver exec i3lock
 
 # Keybindings to start applications
 bindsym $mod+c exec --no-startup-id /opt/sublime-text/sublime_text
+bindsym $mod+b exec --no-startup-id google-chrome-stable
 
 # set some nice colors      border     background  text
 client.focused              $grey        $lgrey         $red
