@@ -244,16 +244,17 @@ client.urgent               $grey        $dark         $lgrey
 exec --no-startup-id dropboxd
 exec --no-startup-id nm-applet
 exec --no-startup-id google-chrome-stable
+#exec --no-startup-id start-pulseaudio-x11
 #exec --no-startup-id gnome-terminal
 
 # pulse audio volume control
-#bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume 0 -- '-5%'
-#bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume 0 -- '+5%'
-#bindsym XF86AudioMute exec /usr/bin/pactl set-sink-volume 0 0
-bindsym XF86AudioRaiseVolume exec amixer set Master 5+
-bindsym XF86AudioLowerVolume exec amixer set Master 4-
-bindsym XF86AudioMute exec amixer set Master toggle
-#bindsym XF86Launch1 exec /usr/bin/pactl play-sample that_was_easy
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%'
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%'
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 0
+#bindsym XF86AudioRaiseVolume exec amixer set Master 5+
+#bindsym XF86AudioLowerVolume exec amixer set Master 4-
+#bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86Launch1 exec --no-startup-id pavucontrol
 bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
 
