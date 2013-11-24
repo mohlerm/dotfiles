@@ -215,7 +215,7 @@ alias low='sudo sh -c "echo 25 > /sys/devices/system/cpu/intel_pstate/max_perf_p
 alias high='sudo sh -c "echo 100 > /sys/devices/system/cpu/intel_pstate/max_perf_pct"'
 alias pt='sudo powertop'
 alias wdir='cd ~/Dropbox/dev/wdir'
-alias sublime-text='/opt/sublime-text/sublime_text'
+alias sublime-text='/opt/sublime-text/sublime-text'
 alias usb='sudo mount /dev/sdb /mnt/usb && cd /mnt/usb'
 
 export EDITOR="nano"
