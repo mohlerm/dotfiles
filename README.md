@@ -26,10 +26,16 @@ running on a Thinkpad X1 Carbon
 Check out the .i3/config for more.
 
 ##Screenshots
-![i3 alsi](http://mohlerm.ch/img/i3_alsi.jpg)
-![i3 terminal](http://mohlerm.ch/img/i3_terminal.jpg)
-![i3 nautilus](http://mohlerm.ch/img/i3_nautilus.jpg)
-![i3 chrome](http://mohlerm.ch/img/i3_chrome.jpg)
-![i3 sublime](http://mohlerm.ch/img/i3_sublime.jpg)
+![i3 alsi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_alsi.jpg)
+![i3 terminal](https://raw.github.com/mohlerm/dotfiles/master/img/i3_terminal.jpg)
+![i3 nautilus](https://raw.github.com/mohlerm/dotfiles/master/img/i3_nautilus.jpg)
+![i3 chrome](https://raw.github.com/mohlerm/dotfiles/master/img/i3_chrome.jpg)
+![i3 sublime](https://raw.github.com/mohlerm/dotfiles/master/img/i3_sublime.jpg)
 
 # slim Configuration
+
+Arch Theme - download at http://slim.berlios.de/themes01.php
+
+# Sublime Color Theme
+
+See https://github.com/mohlerm/sublime-color-scheme-numix-thinkpad
