@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo fstrim -v /
+sudo fstrim -v /home
+sudo fstrim -v /var

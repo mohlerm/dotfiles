@@ -44,13 +44,13 @@ bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+#bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-# change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+# change focus (vim based)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -59,10 +59,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -71,7 +71,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+v split v
@@ -97,16 +97,19 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # Workspace names
-set $ws1  1:bash
-set $ws2  2:www
-set $ws3  3:pdf
-set $ws4  4:code
-set $ws5  5:com
-set $ws6  6:steam
-set $ws7  7:ws7
-set $ws8  8:ws8
-set $ws9  9:ws9
-set $ws10 10:dp1
+set $ws1  1: term
+set $ws2  2: www
+set $ws3  3: three
+set $ws4  4: four
+set $ws5  5: five
+set $ws6  6: steam
+set $ws7  7: ws7
+set $ws8  8: ws8
+set $ws9  9: dp
+set $ws10 10: com
+
+# rename workspace
+bindsym $mod+F2 exec i3-input -F 'rename workspace to %s' -P 'New name: '
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -135,7 +138,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # workspace management
 # workspace $ws1 output LVDS1
 # workspace 10 automatically displays on an external monitor connected to the display port (for presentation purposes)
-workspace $ws10 output DP1
+#workspace $ws9 output DP1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -187,7 +190,8 @@ bar {
 	colors {
         	background          $grey
         	statusline          $lgrey
-        	separator           $lgrey
+		separator	    $grey
+        	#separator           $lgrey
 		#		    border	background   text
         	focused_workspace   $grey       $lgrey        $red
         	active_workspace    $grey       $grey        $lgrey
@@ -206,27 +210,33 @@ bindsym $mod+Tab workspace back_and_forth
 # use xprop to figure out the class variable
 #assign [class="Gnome-terminal"] $ws1
 assign [class="Google-chrome-stable"] $ws2
-assign [class="Evince"] $ws3
-assign [class="Pidgin"] $ws5
-assign [class="Ts3client_linux_amd64"] $ws5
-assign [class="Sublime_text"] $ws4
-assign [class="jetbrains-android-studio"] $ws4
-assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws5
-assign [class="Xchat"] $ws5
+#assign [class="Evince"] $ws3
+assign [class="Pidgin"] $ws10
+assign [class="Ts3client_linux_amd64"] $ws10
+assign [class="Sublime_text"] $ws3
+assign [class="jetbrains-android-studio"] $ws3
+#Google Hangout
+#assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws10
+assign [class="Xchat"] $ws10
 assign [class="Steam"] $ws6
 
 # disable borders for some applications
 for_window [class="^Google-chrome-stable$"] border none
 for_window [class="Nautilus"] border none
-for_window [class="Steam"] border none
+#for_window [class="Steam"] border none
 
 # enable floating mode for some applications
-for_window [class="file_progress"] floating enable
+for_window [class="Nautilus" instance="file_progress"] floating enable
+for_window [class="Nautilus" instance="file_progress"] border normal
+for_window [class="Steam" instance="Friends"] floating enable
 for_window [class="Gcalctool"] floating enable
+# weird workaround for steam, see https://github.com/ValveSoftware/steam-for-linux/issues/597
+for_window [class="Steam"] floating enable
+for_window [class="Steam" title="^Steam$"] floating disable
 
 # i3clock settings
-bindsym $mod+Escape exec i3lock
-bindsym XF86ScreenSaver exec i3lock
+#bindsym $mod+Escape exec i3lock -c 333333
+bindsym XF86ScreenSaver exec i3lock -c 333333
 
 # Keybindings to start applications
 bindsym $mod+c exec --no-startup-id /opt/sublime-text/sublime_text
@@ -285,3 +295,58 @@ bindsym $mod+minus scratchpad show
 
 # set desktop wallpaper
 exec --no-startup-id sh ~/.fehbg
+
+# shutdown, reboot, lock script
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id ~/.i3exit lock, mode "default"
+    bindsym e exec --no-startup-id ~/.i3exit logout, mode "default"
+    bindsym s exec --no-startup-id ~/.i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id ~/.i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id ~/.i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id ~/.i3exit shutdown, mode "default"  
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+#bindsym $mod+P mode "$mode_system"
+bindsym Control+Mod1+Delete mode "$mode_system"
+bindsym $mod+Escape mode "$mode_system"
+
+# start nautilus interactively
+set $mode_terminal Terminal (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS  $
+mode "$mode_terminal" {
+    bindsym h exec --no-startup-id gnome-terminal, mode "default"
+    bindsym d exec --no-startup-id gnome-terminal --working-directory=Downloads, mode "default"
+    bindsym c exec --no-startup-id gnome-terminal --working-directory=Dropbox, mode "default"
+    bindsym e exec --no-startup-id gnome-terminal --working-directory=Dropbox/ETH/3.\ Semester\ HS13, mode "default"
+    bindsym n exec --no-startup-id gnome-terminal --working-directory=/mnt/nas, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+backslash mode "$mode_terminal"
+
+# start nautilus interactively
+set $mode_nautilus File Browser (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS  $
+mode "$mode_nautilus" {
+    bindsym h exec --no-startup-id nautilus ~/, mode "default"
+    bindsym d exec --no-startup-id nautilus ~/Downloads, mode "default"
+    bindsym c exec --no-startup-id nautilus ~/Dropbox, mode "default"
+    bindsym e exec --no-startup-id nautilus ~/Dropbox/ETH/3.\ Semester\ HS13, mode "default"
+    bindsym n exec --no-startup-id nautilus /mnt/nas, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+backslash mode "$mode_nautilus"
+
+
+# for later use
+# Fn+2 → XF86ScreenSaver
+# Fn+2 → XF86ScreenSaver
+# Fn+4 → XF86Sleep & XF86Wakeup
+# Fn+12 → XF86Suspend

@@ -143,6 +143,7 @@ if [ $UID -ne 0 ]; then
     alias poweroff='sudo systemctl poweroff'
     alias update='sudo pacman -Su'
     alias netctl='sudo netctl'
+    alias sano='sudo nano'
 fi
 
 ## ls ## {{{
@@ -205,7 +206,7 @@ cl() {
 }
 
 #userscripts
-alias matlab='~/Programs/MATLAB/R2013a/bin/matlab -nosplash -nodesktop'
+alias matlab='~/bin/MATLAB/R2013b/bin/matlab -nosplash -nodesktop'
 alias casp='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Systems\ Programming\ and\ Computer\ Architecture/exercises/mohlerm/'
 alias numeth='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Numerische\ Methoden\ fuer\ CSE/'
 alias cpu='cd /sys/devices/system/cpu/cpu0/cpufreq/'
@@ -215,9 +216,14 @@ alias low='sudo sh -c "echo 25 > /sys/devices/system/cpu/intel_pstate/max_perf_p
 alias high='sudo sh -c "echo 100 > /sys/devices/system/cpu/intel_pstate/max_perf_pct"'
 alias pt='sudo powertop'
 alias wdir='cd ~/Dropbox/dev/wdir'
-alias sublime-text='/opt/sublime-text/sublime-text'
+alias sublime-text='/opt/sublime-text/sublime_text'
 alias usb='sudo mount /dev/sdb /mnt/usb && cd /mnt/usb'
+alias monon='xset -dpms'
+alias monoff='xset +dpms'
+alias trim='./.trim'
 
 export EDITOR="nano"
 
 . .bashsecret
+
+alsi
