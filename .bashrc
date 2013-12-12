@@ -218,12 +218,15 @@ alias pt='sudo powertop'
 alias wdir='cd ~/Dropbox/dev/wdir'
 alias sublime-text='/opt/sublime-text/sublime_text'
 alias usb='sudo mount /dev/sdb /mnt/usb && cd /mnt/usb'
+alias uusb='sudo umount /mnt/usb'
 alias monon='xset -dpms'
 alias monoff='xset +dpms'
 alias trim='./.trim'
+alias powertop='sudo powertop'
 
 export EDITOR="nano"
 
 . .bashsecret
 
 alsi
+

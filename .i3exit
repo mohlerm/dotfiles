@@ -1,6 +1,7 @@
 #!/bin/sh
 lock() {
-    i3lock -c 333333
+    #i3lock -c 333333
+    i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
 }
 
 case "$1" in

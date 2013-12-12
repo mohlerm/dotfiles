@@ -1,3 +1,6 @@
+# see nano /usr/share/dunst/dunstrc for all available configs
+[global]
+    font = Share Tech Bold 10
     # close all notifications
     close_all = mod4+n
 

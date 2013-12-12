@@ -30,7 +30,7 @@ font pango: Share Tech Bold 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # start a filemanager
 bindsym $mod+Shift+Return exec --no-startup-id nautilus
@@ -40,7 +40,7 @@ bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -236,7 +236,12 @@ for_window [class="Steam" title="^Steam$"] floating disable
 
 # i3clock settings
 #bindsym $mod+Escape exec i3lock -c 333333
-bindsym XF86ScreenSaver exec i3lock -c 333333
+#bindsym XF86ScreenSaver exec i3lock -c 333333
+bindsym XF86ScreenSaver exec i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
+
+# suspend
+#bindsym XF86Sleep exec i3lock -i ~/img/archlinux-simplygrey-left_bottom.png && systemctl suspend
+bindsym XF86Sleep exec systemctl suspend
 
 # Keybindings to start applications
 bindsym $mod+c exec --no-startup-id /opt/sublime-text/sublime_text
@@ -278,14 +283,14 @@ exec --no-startup-id xset dpms 300 600 900 &
 # With $mod:  Interactively select window or rectangle.
 # With Shift: JPEG instead of PNG.
 # With Ctrl:  Sleep 5 seconds before doing the screenshot.
-bindsym                Print               exec --no-startup-id            scrot    "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym                Shift+Print         exec --no-startup-id            scrot    "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
-bindsym --release $mod+Print               exec --no-startup-id            scrot -s "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym --release $mod+Shift+Print         exec --no-startup-id            scrot -s "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
-bindsym                Control+Print       exec --no-startup-id sleep 5 && scrot    "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym                Control+Shift+Print exec --no-startup-id sleep 5 && scrot    "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
-bindsym --release $mod+Control+Print       exec --no-startup-id sleep 5 && scrot -s "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym --release $mod+Control+Shift+Print exec --no-startup-id sleep 5 && scrot -s "$HOME/tmp/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
+bindsym                Print               exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png &&"
+bindsym                Shift+Print         exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
+bindsym --release $mod+Print               exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png"
+bindsym --release $mod+Shift+Print         exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
+bindsym                Control+Print       exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png"
+bindsym                Control+Shift+Print exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
+bindsym --release $mod+Control+Print       exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png"
+bindsym --release $mod+Control+Shift+Print exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
