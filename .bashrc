@@ -206,7 +206,8 @@ cl() {
 }
 
 #userscripts
-alias matlab='~/bin/MATLAB/R2013b/bin/matlab -nosplash -nodesktop'
+alias matlab='~/bin/MATLAB/R2013b/bin/matlab'
+alias cmatlab='~/bin/MATLAB/R2013b/bin/matlab -nosplash -nodesktop'
 alias casp='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Systems\ Programming\ and\ Computer\ Architecture/exercises/mohlerm/'
 alias numeth='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Numerische\ Methoden\ fuer\ CSE/'
 alias cpu='cd /sys/devices/system/cpu/cpu0/cpufreq/'

@@ -13,6 +13,15 @@
 set $mod Mod4
 set $mod2 Mod1
 
+set $dark     #2d2d2d
+set $grey     #333333
+set $red      #EF2929
+set $green    #8ae234
+set $blue     #729fcf
+set $lblue    #34e2d4
+set $lgrey    #dedede
+set $white    #f9f9f9
+
 # enable gnome settings early to prevent theme bugs with starting apps
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
@@ -40,7 +49,8 @@ bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Share Tech Bold' -nb '#333333' -nf 
+bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Share Tech Bold-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -109,7 +119,7 @@ set $ws9  9: dp
 set $ws10 10: com
 
 # rename workspace
-bindsym $mod+F2 exec i3-input -F 'rename workspace to %s' -P 'New name: '
+bindsym $mod+F2 exec --no-startup-id i3-input -F 'rename workspace to %s' -P 'New name: '
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -173,16 +183,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $dark     #2d2d2d
-set $grey     #333333
-set $red      #EF2929
-set $green    #8ae234
-set $blue     #729fcf
-set $lblue    #34e2d4
-set $lgrey    #dedede
-set $white    #f9f9f9
-
-
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -205,6 +205,8 @@ bar {
 bindsym $mod2+Tab focus right
 bindsym $mod2+Shift+Tab focus left
 bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+Next workspace next
+bindsym $mod+Prior workspace prev
 
 # Assign some applications to certain workspaces
 # use xprop to figure out the class variable
@@ -237,21 +239,21 @@ for_window [class="Steam" title="^Steam$"] floating disable
 # i3clock settings
 #bindsym $mod+Escape exec i3lock -c 333333
 #bindsym XF86ScreenSaver exec i3lock -c 333333
-bindsym XF86ScreenSaver exec i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
+bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
 
 # suspend
 #bindsym XF86Sleep exec i3lock -i ~/img/archlinux-simplygrey-left_bottom.png && systemctl suspend
-bindsym XF86Sleep exec systemctl suspend
+bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 # Keybindings to start applications
 bindsym $mod+c exec --no-startup-id /opt/sublime-text/sublime_text
 bindsym $mod+b exec --no-startup-id google-chrome-stable
 
 # set some nice colors      border     background  text
-client.focused              $grey        $lgrey         $red
-client.unfocused            $grey        $dark         $lgrey
-client.focused_inactive     $grey        $dark         $lgrey
-client.urgent               $grey        $dark         $lgrey
+client.focused              $grey        $lgrey         $red	$red
+client.unfocused            $grey        $dark         $lgrey	$red
+client.focused_inactive     $grey        $dark         $lgrey	$red
+client.urgent               $grey        $dark         $lgrey	$red
 
 #exec --no-startup-id xsetroot -solid "#333333"
 #exec --no-startup-id gnome-settings-daemon
@@ -270,8 +272,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 0
 #bindsym XF86AudioLowerVolume exec amixer set Master 4-
 #bindsym XF86AudioMute exec amixer set Master toggle
 bindsym XF86Launch1 exec --no-startup-id pavucontrol
-bindsym XF86MonBrightnessUp exec /usr/bin/xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec /usr/bin/xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 5
 
 # display monitor settings
 exec --no-startup-id xset dpms 300 600 900 &
@@ -320,7 +322,7 @@ bindsym Control+Mod1+Delete mode "$mode_system"
 bindsym $mod+Escape mode "$mode_system"
 
 # start nautilus interactively
-set $mode_terminal Terminal (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS  $
+set $mode_terminal Terminal (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS
 mode "$mode_terminal" {
     bindsym h exec --no-startup-id gnome-terminal, mode "default"
     bindsym d exec --no-startup-id gnome-terminal --working-directory=Downloads, mode "default"
@@ -335,7 +337,7 @@ mode "$mode_terminal" {
 bindsym $mod+backslash mode "$mode_terminal"
 
 # start nautilus interactively
-set $mode_nautilus File Browser (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS  $
+set $mode_nautilus File Browser (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS
 mode "$mode_nautilus" {
     bindsym h exec --no-startup-id nautilus ~/, mode "default"
     bindsym d exec --no-startup-id nautilus ~/Downloads, mode "default"
