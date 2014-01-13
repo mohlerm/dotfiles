@@ -112,9 +112,9 @@ set $ws2  2: www
 set $ws3  3: three
 set $ws4  4: four
 set $ws5  5: five
-set $ws6  6: steam
-set $ws7  7: ws7
-set $ws8  8: ws8
+set $ws6  6: six
+set $ws7  7: seven
+set $ws8  8: eight
 set $ws9  9: dp
 set $ws10 10: com
 
@@ -147,8 +147,15 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 
 # workspace management
 # workspace $ws1 output LVDS1
-# workspace 10 automatically displays on an external monitor connected to the display port (for presentation purposes)
-#workspace $ws9 output DP1
+# workspace 9 automatically displays on an external monitor connected to the display port (for presentation purposes)
+#workspace MONITOR output DP1
+
+# Move the current workspace to the next output
+# (effectively toggles when you only have two outputs)
+bindsym $mod+o move workspace to output right
+
+# Put this window on the presentation output.
+bindsym $mod+p move container to output DP1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -220,7 +227,7 @@ assign [class="jetbrains-android-studio"] $ws3
 #Google Hangout
 #assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws10
 assign [class="Xchat"] $ws10
-assign [class="Steam"] $ws6
+assign [class="Steam"] $ws7
 
 # disable borders for some applications
 for_window [class="^Google-chrome-stable$"] border none
@@ -239,7 +246,8 @@ for_window [class="Steam" title="^Steam$"] floating disable
 # i3clock settings
 #bindsym $mod+Escape exec i3lock -c 333333
 #bindsym XF86ScreenSaver exec i3lock -c 333333
-bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
+#bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
+bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
 
 # suspend
 #bindsym XF86Sleep exec i3lock -i ~/img/archlinux-simplygrey-left_bottom.png && systemctl suspend
