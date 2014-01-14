@@ -17,6 +17,7 @@ suit your needs
 * dmenu - Super-P launcher
 * feh - setting background
 * alsamixer - sound
+* 
 ### recommended
 * sublime-text - text editor
 * google-chrome - browser
