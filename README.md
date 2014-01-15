@@ -17,6 +17,9 @@ suit your needs
 * dmenu - Super-P launcher
 * feh - setting background
 * alsamixer - sound
+* scrot - screenshots
+* libnotify - notifications
+
 ### recommended
 * sublime-text - text editor
 * google-chrome - browser
@@ -55,7 +58,7 @@ suit your needs
 * Super+PageUp - focus previous workspace
 * Super+b - start google chrome
 * Super+c - start sublime-text
-* Print - make screenshots, see config for modifiers
+* Print - make screenshots, see below for more information
 * Super+Shift+Minus - move focused window to scratchpad
 * Super+Minux - show scratchpad
 * Super+Escape - shutdown, reboot, lock interactively
@@ -73,6 +76,13 @@ Check out the .i3/config for more details.
 * 8: eight: free
 * 9: DP: displayport (Super+p to move window here)
 * 10: com: communication (pidgin, weechat, teamspeak)
+
+##Scrot Screenshots
+* Print - make screenshot in png format
+* Shift+Print - make screenshot in jpg format
+* Super+Print - make screenshot of current window in png format
+* Super+Shift+Print - make screenshot of current window in jpg format
+* add CTRL key - delay screenshot for 5 seconds
 
 ##Screenshots
 ![i3 alsi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_alsi.jpg)

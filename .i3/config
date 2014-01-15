@@ -293,14 +293,14 @@ exec --no-startup-id xset dpms 300 600 900 &
 # With $mod:  Interactively select window or rectangle.
 # With Shift: JPEG instead of PNG.
 # With Ctrl:  Sleep 5 seconds before doing the screenshot.
-bindsym                Print               exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png &&"
-bindsym                Shift+Print         exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
-bindsym --release $mod+Print               exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym --release $mod+Shift+Print         exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
-bindsym                Control+Print       exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym                Control+Shift+Print exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
-bindsym --release $mod+Control+Print       exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png"
-bindsym --release $mod+Control+Shift+Print exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg"
+bindsym                Print               exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot taken"
+bindsym                Shift+Print         exec --no-startup-id            scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot taken"
+bindsym --release $mod+Print               exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot of window taken"
+bindsym --release $mod+Shift+Print         exec --no-startup-id            scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot of window taken"
+bindsym                Control+Print       exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot in 5s"
+bindsym                Control+Shift+Print exec --no-startup-id sleep 5 && scrot    "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot in 5s"
+bindsym --release $mod+Control+Print       exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.png" && notify-send "png screenshot of window in 5s"
+bindsym --release $mod+Control+Shift+Print exec --no-startup-id sleep 5 && scrot -s "$HOME/Pictures/Screenshot %Y-%m-%d %H-%M-%S %z.jpg" && notify-send "jpg screenshot of window in 5s"
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
