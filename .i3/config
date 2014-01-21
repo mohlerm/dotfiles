@@ -228,6 +228,7 @@ assign [class="jetbrains-android-studio"] $ws3
 #assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws10
 assign [class="Xchat"] $ws10
 assign [class="Steam"] $ws7
+assign [class="Skype"] $ws10
 
 # disable borders for some applications
 for_window [class="^Google-chrome-stable$"] border none
@@ -284,7 +285,7 @@ bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 5
 
 # display monitor settings
-exec --no-startup-id xset dpms 300 600 900 &
+exec --no-startup-id xset dpms 600 600 600
 
 # $mod+n reserved for close all notifications
 # see ~/.config/dunst/dunstrc for more
@@ -315,6 +316,7 @@ exec --no-startup-id sh ~/.fehbg
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id ~/.i3exit lock, mode "default"
+    bindsym f exec --no-startup-id ~/.i3exit fun, mode "default"
     bindsym e exec --no-startup-id ~/.i3exit logout, mode "default"
     bindsym s exec --no-startup-id ~/.i3exit suspend, mode "default"
     bindsym h exec --no-startup-id ~/.i3exit hibernate, mode "default"

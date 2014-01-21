@@ -141,7 +141,7 @@ if [ $UID -ne 0 ]; then
     alias root='sudo -s'
     alias reboot='sudo systemctl reboot'
     alias poweroff='sudo systemctl poweroff'
-    alias update='sudo pacman -Su'
+    alias update='yaourt -Suya'
     alias netctl='sudo netctl'
     alias sano='sudo nano'
 fi
@@ -220,12 +220,21 @@ alias wdir='cd ~/Dropbox/dev/wdir'
 alias sublime-text='/opt/sublime-text/sublime_text'
 alias usb='sudo mount /dev/sdb /mnt/usb && cd /mnt/usb'
 alias uusb='sudo umount /mnt/usb'
+alias sd='sudo mount /dev/mmcblk0 /mnt/sd && cd /mnt/sd'
+alias usd='sudo umount /mnt/sd'
 alias monon='xset -dpms'
 alias monoff='xset +dpms'
 alias trim='./.trim'
 alias powertop='sudo powertop'
+alias gping='ping 8.8.8.8'
+
+alias laptop='xrandr --output LVDS1 --auto --output DP1 --off'
+alias monitor='xrandr --output LVDS1 --off --output DP1 --auto'
+alias dual='xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto'
+alias minidlnad='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 
 export EDITOR="nano"
+export BROWSER="google-chrome-stable"
 
 . .bashsecret
 
