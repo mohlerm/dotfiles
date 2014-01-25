@@ -19,6 +19,7 @@ suit your needs
 * alsamixer - sound
 * scrot - screenshots
 * libnotify - notifications
+* ttf-font-icons - icons for statusbar
 
 ### recommended
 * sublime-text - text editor
