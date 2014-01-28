@@ -234,7 +234,7 @@ alias monitor='xrandr --output LVDS1 --off --output DP1 --auto'
 alias dual='xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto'
 alias minidlnad='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 
-export EDITOR="nano"
+export EDITOR="vim"
 export BROWSER="google-chrome-stable"
 
 # ex - archive extractor

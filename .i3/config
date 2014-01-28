@@ -17,6 +17,7 @@ set $dark     #2d2d2d
 set $grey     #333333
 set $red      #EF2929
 set $green    #8ae234
+set $dblue    #3465a4
 set $blue     #729fcf
 set $lblue    #34e2d4
 set $lgrey    #dedede
@@ -27,14 +28,15 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-#font pango:DejaVu Sans Mono 10
+#font pango:DejaVu Sans Mono 9
 #font pango: Cantarell Bold 10
-font pango: Share Tech Bold 10
+#font pango: Share Tech Bold 10
+font pango: Terminus, Icons 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -51,6 +53,7 @@ bindsym mod1+F4 kill
 # start dmenu (a program launcher)
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Share Tech Bold' -nb '#333333' -nf 
 bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Share Tech Bold-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
+#bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -274,9 +277,10 @@ exec --no-startup-id google-chrome-stable
 #exec --no-startup-id gnome-terminal
 
 # pulse audio volume control
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%'
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%'
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 0
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%' && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%' && killall -SIGUSR1 i3status
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 0
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
 #bindsym XF86AudioRaiseVolume exec amixer set Master 5+
 #bindsym XF86AudioLowerVolume exec amixer set Master 4-
 #bindsym XF86AudioMute exec amixer set Master toggle
