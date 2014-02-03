@@ -20,6 +20,7 @@ suit your needs
 * scrot - screenshots
 * libnotify - notifications
 * ttf-font-icons - icons for statusbar
+* mpd & mpc - media player server and thin client
 
 ### recommended
 * sublime-text - text editor
@@ -63,6 +64,7 @@ suit your needs
 * Super+Shift+Minus - move focused window to scratchpad
 * Super+Minux - show scratchpad
 * Super+Escape - shutdown, reboot, lock interactively
+* Thinkpad special keys work as expected and labeled
 
 Check out the .i3/config for more details.
 

@@ -258,8 +258,11 @@ bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
 bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 # Keybindings to start applications
-bindsym $mod+c exec --no-startup-id /opt/sublime-text/sublime_text
-bindsym $mod+b exec --no-startup-id google-chrome-stable
+#bindsym $mod+Shift+c exec --no-startup-id /opt/sublime-text/sublime_text
+bindsym $mod+Shift+b exec --no-startup-id google-chrome-stable
+
+# Keybindings to switch to certain applications
+bindsym $mod+b [class="^Google-chrome-stable$"] focus
 
 # set some nice colors      border     background  text
 client.focused              $grey        $lgrey         $red	$red
@@ -365,9 +368,15 @@ mode "$mode_nautilus" {
 }
 bindsym $mod+Shift+backslash mode "$mode_nautilus"
 
+bindsym XF86AudioNext exec --no-startup-id /usr/bin/mpc next
+bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
+bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
+bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
+
 
 # for later use
 # Fn+2 → XF86ScreenSaver
 # Fn+2 → XF86ScreenSaver
 # Fn+4 → XF86Sleep & XF86Wakeup
 # Fn+12 → XF86Suspend
+
