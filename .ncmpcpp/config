@@ -58,9 +58,9 @@ mpd_music_dir = "~/Music"
 ## If you set format to 44100:16:2, make it 'yes'.
 ##
 #
-#visualizer_in_stereo = "no"
+#visualizer_in_stereo = "yes"
 #
-#visualizer_fifo_path = ""
+#visualizer_fifo_path = "/tmp/mpd.fifo"
 #
 ##
 ## Note: Below parameter is needed for ncmpcpp
@@ -70,7 +70,7 @@ mpd_music_dir = "~/Music"
 ## are some problems with it.
 ##
 #
-#visualizer_output_name = ""
+#visualizer_output_name = "my fifo"
 #
 ##
 ## Note: Below parameter defines how often ncmpcpp

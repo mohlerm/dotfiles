@@ -218,14 +218,14 @@ alias low='sudo sh -c "echo 25 > /sys/devices/system/cpu/intel_pstate/max_perf_p
 alias high='sudo sh -c "echo 100 > /sys/devices/system/cpu/intel_pstate/max_perf_pct"'
 alias pt='sudo powertop'
 alias wdir='cd ~/Dropbox/dev/wdir'
-alias sublime-text='/opt/sublime-text/sublime_text'
+#alias sublime-text='/opt/sublime-text/sublime_text'
 alias usb='sudo mount /dev/sdb /mnt/usb && cd /mnt/usb'
 alias uusb='sudo umount /mnt/usb'
-alias sd='sudo mount /dev/mmcblk0 /mnt/sd && cd /mnt/sd'
+alias sd='sudo mount /dev/mmcblk0p1 /mnt/sd && cd /mnt/sd'
 alias usd='sudo umount /mnt/sd'
 alias monon='xset -dpms'
 alias monoff='xset +dpms'
-alias trim='./.trim'
+alias trim='~/.trim'
 alias powertop='sudo powertop'
 alias gping='ping 8.8.8.8'
 
@@ -233,6 +233,8 @@ alias laptop='xrandr --output LVDS1 --auto --output DP1 --off'
 alias monitor='xrandr --output LVDS1 --off --output DP1 --auto'
 alias dual='xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto'
 alias minidlnad='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
+alias bt='./.bt'
+alias fixtime='ntpd -q'
 
 export EDITOR="vim"
 export BROWSER="google-chrome-stable"
@@ -262,9 +264,36 @@ ex ()
 }
 
 
+# Compatible with ranger 1.4.2 through 1.6.*
+#
+# Automatically change the directory in bash after closing ranger
+#
+# This is a bash function for .bashrc to automatically change the directory to
+# the last visited one after ranger quits.
+# To undo the effect of this function, you can type "cd -" to return to the
+# original directory.
+
+function ranger-cd {
+    tempfile='/tmp/chosendir'
+    /usr/bin/ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    test -f "$tempfile" &&
+    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
+        cd -- "$(cat "$tempfile")"
+    fi
+    rm -f -- "$tempfile"
+}
+
+# This binds Ctrl-O to ranger-cd:
+bind '"\C-o":"ranger-cd\C-m"'
+
+alias term='gnome-terminal'
+alias ranger='ranger-cd'
+alias new='clear && alsi'
+alias please='sudo $(history -p !!)'
 
 
-. .bashsecret
+
+. ~/.bashsecret
 
 alsi
 

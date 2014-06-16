@@ -4,16 +4,21 @@ lock() {
     #i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
     i3lock -i ~/img/i3lock_black.png
 }
-
+funlock() {
+    i3lock -u -p win -i img/i3lock_fun.png
+}
 case "$1" in
     lock)
         lock
         ;;
+    fun)
+        funlock
+        ;; 
     logout)
         i3-msg exit
         ;;
     suspend)
-        lock && systemctl suspend
+        systemctl suspend
         ;;
     hibernate)
         lock && systemctl hibernate

@@ -15,4 +15,5 @@ fi
 # exec startkde
 # exec startxfce4
 # ...or the Window Manager of your choice
-exec $1
+#exec $1
+exec i3

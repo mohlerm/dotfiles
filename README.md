@@ -88,11 +88,13 @@ Check out the .i3/config for more details.
 * add CTRL key - delay screenshot for 5 seconds
 
 ##Screenshots
-![i3 alsi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_alsi.jpg)
-![i3 terminal](https://raw.github.com/mohlerm/dotfiles/master/img/i3_terminal.jpg)
-![i3 nautilus](https://raw.github.com/mohlerm/dotfiles/master/img/i3_nautilus.jpg)
-![i3 chrome](https://raw.github.com/mohlerm/dotfiles/master/img/i3_chrome.jpg)
-![i3 sublime](https://raw.github.com/mohlerm/dotfiles/master/img/i3_sublime.jpg)
+![i3 alsi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_alsi.png)
+![i3 terminal](https://raw.github.com/mohlerm/dotfiles/master/img/i3_terminal.png)
+![i3 nautilus](https://raw.github.com/mohlerm/dotfiles/master/img/i3_nautilus.png)
+![i3 chrome](https://raw.github.com/mohlerm/dotfiles/master/img/i3_chrome.png)
+![i3 sublime](https://raw.github.com/mohlerm/dotfiles/master/img/i3_sublime.png)
+![i3 monitor](https://raw.github.com/mohlerm/dotfiles/master/img/i3_monitor.png)
+![i3 lock](https://raw.github.com/mohlerm/dotfiles/master/img/i3lock_black.png)
 
 # slim Configuration
 

@@ -121,6 +121,12 @@ set $ws8  8: eight
 set $ws9  9: dp
 set $ws10 10: com
 
+# browser workspace preferes external monitor
+workspace "2: www" output DP1
+workspace "7: seven" output DP1
+workspace "10: com" output LVDS1
+workspace "1: term" output LVDS1
+
 # rename workspace
 bindsym $mod+F2 exec --no-startup-id i3-input -F 'rename workspace to %s' -P 'New name: '
 
@@ -222,6 +228,7 @@ bindsym $mod+Prior workspace prev
 # use xprop to figure out the class variable
 #assign [class="Gnome-terminal"] $ws1
 assign [class="Google-chrome-stable"] $ws2
+assign [class="Firefox"] $ws2
 #assign [class="Evince"] $ws3
 assign [class="Pidgin"] $ws10
 assign [class="Ts3client_linux_amd64"] $ws10
@@ -235,6 +242,7 @@ assign [class="Skype"] $ws10
 
 # disable borders for some applications
 for_window [class="^Google-chrome-stable$"] border none
+for_window [class="^Firefox$"] border none
 for_window [class="Nautilus"] border none
 #for_window [class="Steam"] border none
 
@@ -258,11 +266,11 @@ bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
 bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 # Keybindings to start applications
-#bindsym $mod+Shift+c exec --no-startup-id /opt/sublime-text/sublime_text
-bindsym $mod+Shift+b exec --no-startup-id google-chrome-stable
+bindsym $mod+c exec --no-startup-id subl
+bindsym $mod+b exec --no-startup-id google-chrome-stable
 
 # Keybindings to switch to certain applications
-bindsym $mod+b [class="^Google-chrome-stable$"] focus
+bindsym $mod+Shift+b [class="^Google-chrome-stable$"] focus
 
 # set some nice colors      border     background  text
 client.focused              $grey        $lgrey         $red	$red
@@ -275,7 +283,7 @@ client.urgent               $grey        $dark         $lgrey	$red
 #exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec --no-startup-id dropboxd
 exec --no-startup-id nm-applet
-exec --no-startup-id google-chrome-stable
+#exec --no-startup-id google-chrome-stable
 #exec --no-startup-id start-pulseaudio-x11
 #exec --no-startup-id gnome-terminal
 
@@ -344,7 +352,7 @@ mode "$mode_terminal" {
     bindsym h exec --no-startup-id gnome-terminal, mode "default"
     bindsym d exec --no-startup-id gnome-terminal --working-directory=Downloads, mode "default"
     bindsym c exec --no-startup-id gnome-terminal --working-directory=Dropbox, mode "default"
-    bindsym e exec --no-startup-id gnome-terminal --working-directory=Dropbox/ETH/3.\ Semester\ HS13, mode "default"
+    bindsym e exec --no-startup-id gnome-terminal --working-directory=Dropbox/ETH/4.\ Semester\ FS14, mode "default"
     bindsym n exec --no-startup-id gnome-terminal --working-directory=/mnt/nas, mode "default"
 
     # back to normal: Enter or Escape
@@ -359,7 +367,7 @@ mode "$mode_nautilus" {
     bindsym h exec --no-startup-id nautilus ~/, mode "default"
     bindsym d exec --no-startup-id nautilus ~/Downloads, mode "default"
     bindsym c exec --no-startup-id nautilus ~/Dropbox, mode "default"
-    bindsym e exec --no-startup-id nautilus ~/Dropbox/ETH/3.\ Semester\ HS13, mode "default"
+    bindsym e exec --no-startup-id nautilus ~/Dropbox/ETH/4.\ Semester\ FS14, mode "default"
     bindsym n exec --no-startup-id nautilus /mnt/nas, mode "default"
 
     # back to normal: Enter or Escape
@@ -368,11 +376,28 @@ mode "$mode_nautilus" {
 }
 bindsym $mod+Shift+backslash mode "$mode_nautilus"
 
+# choose xrandr displaymode
+set $mode_display Display mode (d) dual, (m) monitor, (l) laptop
+mode "$mode_display" {
+    bindsym d exec --no-startup-id xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto, mode "default"
+    bindsym m exec --no-startup-id xrandr --output LVDS1 --off --output DP1 --auto, mode "default"
+    bindsym l exec --no-startup-id xrandr --output LVDS1 --auto --output DP1 --off, mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+I mode "$mode_display"
+
 bindsym XF86AudioNext exec --no-startup-id /usr/bin/mpc next
 bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
 bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
 bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
 
+exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/marcel/.i3/workspace-10.json'"
+
+bindsym $mod+Home exec --no-startup-id $HOME/.dock on
+bindsym $mod+End exec --no-startup-id $HOME/.dock off
 
 # for later use
 # Fn+2 → XF86ScreenSaver

@@ -3,3 +3,5 @@
 sudo fstrim -v /
 sudo fstrim -v /home
 sudo fstrim -v /var
+sudo ntpd -q
+sudo hwclock -w

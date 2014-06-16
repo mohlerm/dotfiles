@@ -96,7 +96,16 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+set smartindent
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 set number
-colorscheme elflord
+syntax enable
+set background=dark
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+execute pathogen#infect()
