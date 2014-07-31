@@ -254,6 +254,7 @@ for_window [class="Gcalctool"] floating enable
 # weird workaround for steam, see https://github.com/ValveSoftware/steam-for-linux/issues/597
 for_window [class="Steam"] floating enable
 for_window [class="Steam" title="^Steam$"] floating disable
+for_window [class="Pavucontrol"] floating enable
 
 # i3clock settings
 #bindsym $mod+Escape exec i3lock -c 333333
@@ -290,12 +291,14 @@ exec --no-startup-id nm-applet
 # pulse audio volume control
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%' && killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%' && killall -SIGUSR1 i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-volume 0 0
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec amixer set Master 5+
-#bindsym XF86AudioLowerVolume exec amixer set Master 4-
-#bindsym XF86AudioMute exec amixer set Master toggle
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
+
+#bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1+ && killall -SIGUSR1 i3status
+#bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1- && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle && killall -SIGUSR1 i3status
 bindsym XF86Launch1 exec --no-startup-id pavucontrol
+bindsym $mod+F1 exec --no-startup-id pavucontrol
 bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 5
 
@@ -394,7 +397,7 @@ bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
 bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
 bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
 
-exec --no-startup-id "i3-msg 'workspace 10; append_layout /home/marcel/.i3/workspace-10.json'"
+exec --no-startup-id "i3-msg 'workspace 10: com; append_layout /home/marcel/.i3/workspace-10.json'"
 
 bindsym $mod+Home exec --no-startup-id $HOME/.dock on
 bindsym $mod+End exec --no-startup-id $HOME/.dock off

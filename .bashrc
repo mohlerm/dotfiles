@@ -294,6 +294,7 @@ alias please='sudo $(history -p !!)'
 
 
 . ~/.bashsecret
+complete -r vim
 
 alsi
 
