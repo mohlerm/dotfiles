@@ -1,28 +1,24 @@
 # see nano /usr/share/dunst/dunstrc for all available configs
 [global]
     #font = Share Tech Bold 20
-    font = Terminus 11
+    font = Terminus 9
     # close all notifications
     close_all = mod4+n
 
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    #background = "#dedede"
-    #foreground = "#EF2929"
-    foreground = "#dedede"
-    background = "#EF2929"
+    foreground = "#9e9e9e"
+    background = "#333333"
     timeout = 10
 
 [urgency_normal]
-    #background = "#dedede"
-    #foreground = "#EF2929"
-    foreground = "#dedede"
-    background = "#EF2929"
+    foreground = "#f9f9f9"
+    background = "#333333"
     timeout = 10
 
 [urgency_critical]
     background = "#333333"
-    foreground = "#EF2929"
+    foreground = "#f9f9f9"
     timeout = 0
 

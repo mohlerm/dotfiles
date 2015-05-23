@@ -207,8 +207,8 @@ cl() {
 }
 
 #userscripts
-alias matlab='~/bin/MATLAB/R2013b/bin/matlab'
-alias cmatlab='~/bin/MATLAB/R2013b/bin/matlab -nosplash -nodesktop'
+alias matlab='~/bin/MATLAB/R2014b/bin/matlab'
+alias cmatlab='~/bin/MATLAB/R2014b/bin/matlab -nosplash -nodesktop'
 alias casp='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Systems\ Programming\ and\ Computer\ Architecture/exercises/mohlerm/'
 alias numeth='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Numerische\ Methoden\ fuer\ CSE/'
 alias cpu='cd /sys/devices/system/cpu/cpu0/cpufreq/'
@@ -232,13 +232,14 @@ alias gping='ping 8.8.8.8'
 alias laptop='xrandr --output LVDS1 --auto --output DP1 --off'
 alias monitor='xrandr --output LVDS1 --off --output DP1 --auto'
 alias dual='xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto'
+alias both='xrandr --output LVDS1 --auto --output DP1 --mode 1280x1080'
 alias minidlnad='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias bt='./.bt'
 alias fixtime='ntpd -q'
 
 export EDITOR="vim"
-export BROWSER="google-chrome-stable"
-
+export BROWSER="firefox"
+export TESTJAVA="/home/marcel/ownCloud/ETH/6thSemesterFS15/BachelorThesis/hs-comp/build/linux-x86_64-normal-server-fastdebug/jdk"
 # ex - archive extractor
 # usage: ex <file>
 ex ()
