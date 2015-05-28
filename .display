@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ "$1" = "dual" ]; then
+  xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto
+fi
+if [ "$1" = "monitor" ]; then
+  xrandr --output LVDS1 --off --output DP1 --auto
+fi
+if [ "$1" = "laptop" ]; then
+  xrandr --output LVDS1 --auto --output DP1 --off
+fi
+
+~/.fehbg
