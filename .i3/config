@@ -237,22 +237,18 @@ bindsym $mod+Prior workspace prev
 # Assign some applications to certain workspaces
 # use xprop to figure out the class variable
 #assign [class="Gnome-terminal"] $ws1
-assign [class="Google-chrome-stable"] $ws2
 assign [class="Firefox"] $ws2
 #assign [class="Evince"] $ws3
 assign [class="Pidgin"] $ws10
 assign [class="Ts3client_linux_amd64"] $ws10
-assign [class="Sublime_text"] $ws3
 assign [class="jetbrains-android-studio"] $ws3
 #Google Hangout
 #assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws10
-assign [class="Xchat"] $ws10
 assign [class="Steam"] $ws7
 assign [class="Skype"] $ws10
-assign [class="uTox"] $ws10
 
 # disable borders for some applications
-for_window [class="^Google-chrome-stable$"] border none
+for_window [class="^Chromium$"] border none
 for_window [class="^Firefox$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="Nautilus"] border none

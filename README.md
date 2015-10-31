@@ -14,17 +14,17 @@ suit your needs
 * i3 - window manager
 * i3status - status bar
 * dunst - notifications
-* dmenu - Super-P launcher
+* rofi - Super-P launcher
 * feh - setting background
-* alsamixer - sound
+* pavucontrol - sound
 * scrot - screenshots
 * libnotify - notifications
 * ttf-font-icons - icons for statusbar
-* mpd & mpc - media player server and thin client
 
 ### recommended
-* sublime-text - text editor
-* google-chrome - browser
+* vim - basic text editor
+* atom - code editor
+* firefox - browser
 * gnome-terminal - terminal emulator
 
 ##Basic Bindings
@@ -34,7 +34,8 @@ suit your needs
 * Super+Backslash - open terminal interactively
 * Super+Shift+Backslash - open nautilus interactively
 * Alt+F4 - kill focused window
-* Super+d - program launcher (dmenu)
+* Super+d - program launcher (rofi)
+* Super+Shift+d - ssh launcher (rofi)
 * Super+{h,j,k,l} - focus left, down, up, right (vim based)
 * Super+{v,g} - split vertical, horizontal 
 * Super+f - fullscreen
@@ -78,7 +79,7 @@ Check out the .i3/config for more details.
 * 7: seven: steam
 * 8: eight: free
 * 9: DP: displayport (Super+p to move window here)
-* 10: com: communication (pidgin, weechat, teamspeak)
+* 10: com: communication
 
 ##Scrot Screenshots
 * Print - make screenshot in png format
@@ -95,10 +96,6 @@ Check out the .i3/config for more details.
 ![i3 sublime](https://raw.github.com/mohlerm/dotfiles/master/img/i3_sublime.png)
 ![i3 monitor](https://raw.github.com/mohlerm/dotfiles/master/img/i3_monitor.png)
 ![i3 lock](https://raw.github.com/mohlerm/dotfiles/master/img/i3lock_black.png)
-
-# slim Configuration
-
-Arch Theme - download at http://slim.berlios.de/themes01.php
 
 # Sublime Color Theme
 
