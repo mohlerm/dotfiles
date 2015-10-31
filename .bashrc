@@ -209,15 +209,13 @@ cl() {
 #userscripts
 alias matlab='~/bin/MATLAB/R2014b/bin/matlab'
 alias cmatlab='~/bin/MATLAB/R2014b/bin/matlab -nosplash -nodesktop'
-alias casp='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Systems\ Programming\ and\ Computer\ Architecture/exercises/mohlerm/'
-alias numeth='cd ~/Dropbox/ETH/3.\ Semester\ HS13/Numerische\ Methoden\ fuer\ CSE/'
 alias cpu='cd /sys/devices/system/cpu/cpu0/cpufreq/'
 alias dt='sudo sh -c "echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"'
 alias et='sudo sh -c "echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo"'
 alias low='sudo sh -c "echo 25 > /sys/devices/system/cpu/intel_pstate/max_perf_pct"'
 alias high='sudo sh -c "echo 100 > /sys/devices/system/cpu/intel_pstate/max_perf_pct"'
 alias pt='sudo powertop'
-alias wdir='cd ~/Dropbox/dev/wdir'
+alias wdir='cd ~/cloud/dev/wdir'
 #alias sublime-text='/opt/sublime-text/sublime_text'
 alias usb='sudo mount /dev/sdb /mnt/usb && cd /mnt/usb'
 alias uusb='sudo umount /mnt/usb'
@@ -233,13 +231,15 @@ alias laptop='xrandr --output LVDS1 --auto --output DP1 --off'
 alias monitor='xrandr --output LVDS1 --off --output DP1 --auto'
 alias dual='xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto'
 alias both='xrandr --output LVDS1 --auto --output DP1 --mode 1280x1080'
+alias pip='xrandr --output LVDS1 --auto --output DP1 --mode 1920x1080'
 alias minidlnad='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias bt='./.bt'
 alias fixtime='ntpd -q'
 
 export EDITOR="vim"
 export BROWSER="firefox"
-export TESTJAVA="/home/marcel/ownCloud/ETH/6thSemesterFS15/BachelorThesis/hs-comp/build/linux-x86_64-normal-server-fastdebug/jdk"
+export TESTJAVA="/home/marcel/cloud/ETH/6thSemesterFS15/BachelorThesis/hs-comp/build/linux-x86_64-normal-server-fastdebug/jdk"
+export GOPATH=~/go
 # ex - archive extractor
 # usage: ex <file>
 ex ()
