@@ -248,7 +248,7 @@ assign [class="Steam"] $ws7
 assign [class="Skype"] $ws10
 
 # disable borders for some applications
-for_window [class="^Chromium$"] border none
+for_window [class="^chromium$"] border none
 for_window [class="^Firefox$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="Nautilus"] border none
@@ -278,12 +278,13 @@ bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
 bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 # Keybindings to start applications
-bindsym $mod+c exec --no-startup-id subl
+bindsym $mod+c exec --no-startup-id atom
 #bindsym $mod+b exec --no-startup-id google-chrome-stable
+bindsym $mod+Shift+b exec --no-startup-id chromium
 bindsym $mod+b exec --no-startup-id firefox
 # Keybindings to switch to certain applications
 #bindsym $mod+Shift+b [class="^Google-chrome-stable$"] focus
-bindsym $mod+Shift+b [class="^Firefox$"] focus
+#bindsym $mod+Shift+b [class="^Firefox$"] focus
 
 # set some nice colors      border     background  text seperator
 client.focused              $dark        $grey         $lgrey	$lgrey
@@ -300,12 +301,12 @@ exec --no-startup-id nm-applet
 #exec --no-startup-id gnome-terminal
 
 # pulse audio volume control
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%' && killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%' && killall -SIGUSR1 i3status
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%' && killall -SIGUSR1 i3status
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%' && killall -SIGUSR1 i3status
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
 
-#bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1+ && killall -SIGUSR1 i3status
-#bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1- && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1+ && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1- && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle && killall -SIGUSR1 i3status
 bindsym XF86Launch1 exec --no-startup-id pavucontrol
@@ -403,10 +404,10 @@ mode "$mode_display" {
 }
 bindsym $mod+I mode "$mode_display"
 
-bindsym XF86AudioNext exec --no-startup-id /usr/bin/mpc next
-bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
-bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
-bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
+#bindsym XF86AudioNext exec --no-startup-id /usr/bin/mpc next
+#bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
+#bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
+#bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
 
 #exec --no-startup-id "i3-msg 'workspace 10: com; append_layout /home/marcel/.i3/workspace-10.json'"
 

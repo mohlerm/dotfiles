@@ -9,5 +9,5 @@ fi
 if [ "$1" = "laptop" ]; then
   xrandr --output LVDS1 --auto --output DP1 --off
 fi
-
+#xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --mode 1920x1080 
 ~/.fehbg
