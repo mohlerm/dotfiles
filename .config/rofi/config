@@ -1,0 +1,16 @@
+! ------------------------------------------------------------------------------
+! ROFI Color theme
+! ------------------------------------------------------------------------------
+rofi.color-enabled: true
+rofi.lines: 3
+rofi.columns: 1
+rofi.location: 1
+rofi.terminal: gnome-terminal
+rofi.width: 1600
+rofi.ssh-command: {terminal} -e "{ssh-client} {host}"
+rofi.color-window: #333333, #9e9e9e, #333333
+rofi.color-normal: #333333, #9e9e9e, #333333, #333333, #dedede
+rofi.color-active: #333333, #9e9e9e, #333333, #333333, #dedede
+rofi.color-urgent: #333333, #9e9e9e, #333333, #333333, #dedede
+! background #333333, foreground: #9e9e9e
+! hlbackground #333333, hlbackground #dedede
