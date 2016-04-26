@@ -53,9 +53,10 @@ bindsym $mod+Shift+Return exec --no-startup-id nautilus
 bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
 
-# start dmenu (a program launcher)
+# start rofi (a program launcher like dmenu)
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
+# old code for dmenu
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$dwhite' -sb '$grey' -sf '$lgrey'
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
 # There also is the (new) i3-dmenu-desktop which only displays applications
