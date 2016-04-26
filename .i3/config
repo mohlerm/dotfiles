@@ -137,9 +137,6 @@ workspace $ws8 output DP1
 workspace $ws9 output LVDS1
 workspace $ws10 output LVDS1
 
-# rename workspace
-bindsym $mod+F2 exec --no-startup-id i3-input -F 'rename workspace to %s' -P 'New name: '
-
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -236,14 +233,10 @@ bindsym $mod+Prior workspace prev
 
 # Assign some applications to certain workspaces
 # use xprop to figure out the class variable
-#assign [class="Gnome-terminal"] $ws1
 assign [class="Firefox"] $ws2
-#assign [class="Evince"] $ws3
 assign [class="Pidgin"] $ws10
 assign [class="Ts3client_linux_amd64"] $ws10
 assign [class="jetbrains-android-studio"] $ws3
-#Google Hangout
-#assign [class="crx_nckgahadagoaajjgafhacjanaoiihapd"] $ws10
 assign [class="Steam"] $ws7
 assign [class="Skype"] $ws10
 
@@ -252,39 +245,27 @@ for_window [class="^chromium$"] border none
 for_window [class="^Firefox$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="Nautilus"] border none
-#for_window [class="Steam"] border none
 
 # enable floating mode for some applications
-for_window [class="Nautilus" instance="file_progress"] floating enable
-for_window [class="Nautilus" instance="file_progress"] border normal
 for_window [class="Steam" instance="Friends"] floating enable
 for_window [class="Gcalctool"] floating enable
 # weird workaround for steam, see https://github.com/ValveSoftware/steam-for-linux/issues/597
 for_window [class="Steam"] floating enable
 for_window [class="Steam" title="^Steam$"] floating disable
 for_window [class="Pavucontrol"] floating enable
-
-for_window [title="Hangouts"] floating enable
 for_window [window_role="pop-up"] floating enable
 
 # i3clock settings
-#bindsym $mod+Escape exec i3lock -c 333333
-#bindsym XF86ScreenSaver exec i3lock -c 333333
-#bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
 bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
 
 # suspend
-#bindsym XF86Sleep exec i3lock -i ~/img/archlinux-simplygrey-left_bottom.png && systemctl suspend
 bindsym XF86Sleep exec --no-startup-id systemctl suspend
 
 # Keybindings to start applications
 bindsym $mod+c exec --no-startup-id atom
-#bindsym $mod+b exec --no-startup-id google-chrome-stable
 bindsym $mod+Shift+b exec --no-startup-id chromium
 bindsym $mod+b exec --no-startup-id firefox
 # Keybindings to switch to certain applications
-#bindsym $mod+Shift+b [class="^Google-chrome-stable$"] focus
-#bindsym $mod+Shift+b [class="^Firefox$"] focus
 
 # set some nice colors      border     background  text seperator
 client.focused              $dark        $grey         $lgrey	$lgrey
@@ -292,19 +273,9 @@ client.unfocused            $dark        $grey         $dwhite	$lgrey
 client.focused_inactive     $dark        $grey         $dwhite	$lgrey
 client.urgent               $dark        $grey         $dwhite	$lgrey
 
-#exec --no-startup-id xsetroot -solid "#333333"
-#exec --no-startup-id gnome-settings-daemon
-#exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-exec --no-startup-id dropboxd
 exec --no-startup-id nm-applet
-#exec --no-startup-id google-chrome-stable
-#exec --no-startup-id gnome-terminal
 
 # pulse audio volume control
-#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -- '-5%' && killall -SIGUSR1 i3status
-#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 -- '+5%' && killall -SIGUSR1 i3status
-#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
-
 bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1+ && killall -SIGUSR1 i3status
 bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1- && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
@@ -352,7 +323,6 @@ mode "$mode_system" {
     bindsym h exec --no-startup-id ~/.i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id ~/.i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id ~/.i3exit shutdown, mode "default"  
-
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -360,36 +330,6 @@ mode "$mode_system" {
 #bindsym $mod+P mode "$mode_system"
 bindsym Control+Mod1+Delete mode "$mode_system"
 bindsym $mod+Escape mode "$mode_system"
-
-# start nautilus interactively
-set $mode_terminal Terminal (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS
-mode "$mode_terminal" {
-    bindsym h exec --no-startup-id gnome-terminal, mode "default"
-    bindsym d exec --no-startup-id gnome-terminal --working-directory=Downloads, mode "default"
-    bindsym c exec --no-startup-id gnome-terminal --working-directory=Dropbox, mode "default"
-    bindsym e exec --no-startup-id gnome-terminal --working-directory=Dropbox/ETH/4.\ Semester\ FS14, mode "default"
-    bindsym n exec --no-startup-id gnome-terminal --working-directory=/mnt/nas, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+backslash mode "$mode_terminal"
-
-# start nautilus interactively
-set $mode_nautilus File Browser (h) Home, (d) Downloads, (c) Cloud, (e) ETH, (n) NAS
-mode "$mode_nautilus" {
-    bindsym h exec --no-startup-id nautilus ~/, mode "default"
-    bindsym d exec --no-startup-id nautilus ~/Downloads, mode "default"
-    bindsym c exec --no-startup-id nautilus ~/Dropbox, mode "default"
-    bindsym e exec --no-startup-id nautilus ~/Dropbox/ETH/4.\ Semester\ FS14, mode "default"
-    bindsym n exec --no-startup-id nautilus /mnt/nas, mode "default"
-
-    # back to normal: Enter or Escape
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+Shift+backslash mode "$mode_nautilus"
 
 # choose xrandr displaymode
 set $mode_display Display mode (d) dual, (m) monitor, (l) laptop
@@ -409,8 +349,6 @@ bindsym $mod+I mode "$mode_display"
 #bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
 #bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
 
-#exec --no-startup-id "i3-msg 'workspace 10: com; append_layout /home/marcel/.i3/workspace-10.json'"
-
 bindsym $mod+Home exec --no-startup-id $HOME/.dock on
 bindsym $mod+End exec --no-startup-id $HOME/.dock off
 
@@ -419,4 +357,3 @@ bindsym $mod+End exec --no-startup-id $HOME/.dock off
 # Fn+2 → XF86ScreenSaver
 # Fn+4 → XF86Sleep & XF86Wakeup
 # Fn+12 → XF86Suspend
-
