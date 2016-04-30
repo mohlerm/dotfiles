@@ -5,7 +5,7 @@ case "${1}" in
   add)
     /usr/bin/sudo -u marcel /usr/bin/bash -c '/usr/bin/notify-send "DOCK ON"'
     /usr/bin/sudo -u marcel /usr/bin/bash -c '/home/marcel/.display dual'
-    /usr/bin/sudo -u marcel /usr/bin/bash -c '/usr/bin/wifi off'
+    #/usr/bin/sudo -u marcel /usr/bin/bash -c '/usr/bin/wifi off'
     /usr/bin/sudo -u root /usr/bin/bash -c '/usr/bin/bluetooth on'
     sleep 2
     /usr/bin/sudo -u root /usr/bin/bash -c '/usr/bin/hciconfig hci0 up'
@@ -15,7 +15,7 @@ case "${1}" in
   remove)
     /usr/bin/sudo -u marcel /usr/bin/bash -c '/usr/bin/notify-send "DOCK OFF"'
     /usr/bin/sudo -u marcel /usr/bin/bash -c '/home/marcel/.display laptop'
-    /usr/bin/sudo -u marcel /usr/bin/bash -c '/usr/bin/wifi on'
+    #/usr/bin/sudo -u marcel /usr/bin/bash -c '/usr/bin/wifi on'
     /usr/bin/sudo -u root /usr/bin/bash -c '/usr/bin/bluetooth off'
     ;;
 esac

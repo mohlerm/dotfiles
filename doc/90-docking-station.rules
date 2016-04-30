@@ -1,4 +1,4 @@
 # enable the dock when 3.0 usb hub connected
-ACTION=="add|remove", SUBSYSTEM=="usb", ATTRS{idVendor}=="2109", ATTRS{idProduct}=="0812", RUN+="/etc/udev/scripts/dock-action $env{ACTION}"
+ACTION=="add|remove", SUBSYSTEM=="usb", ATTRS{idVendor}=="0424", ATTRS{idProduct}=="2512", RUN+="/etc/udev/scripts/dock-action $env{ACTION}"
 #ACTION=="add|remove", SUBSYSTEM=="usb", ATTRS{idVendor}=="090c", RUN+="/etc/udev/scripts/dock-action $env{ACTION}"
 
