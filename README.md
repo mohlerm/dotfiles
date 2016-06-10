@@ -3,6 +3,7 @@ dotfiles
 
 Arch Linux with i3 WM config
 running on a Thinkpad X1 Carbon
+Using Arc GTK3 Theme
 Optimized to my personal use, feel free to edit to
 suit your needs
 
@@ -91,12 +92,8 @@ Check out the .i3/config for more details.
 ##Screenshots
 ![i3 alsi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_alsi.png)
 ![i3 terminal](https://raw.github.com/mohlerm/dotfiles/master/img/i3_terminal.png)
-![i3 nautilus](https://raw.github.com/mohlerm/dotfiles/master/img/i3_nautilus.png)
-![i3 chrome](https://raw.github.com/mohlerm/dotfiles/master/img/i3_chrome.png)
-![i3 sublime](https://raw.github.com/mohlerm/dotfiles/master/img/i3_sublime.png)
-![i3 monitor](https://raw.github.com/mohlerm/dotfiles/master/img/i3_monitor.png)
+![i3 ranger](https://raw.github.com/mohlerm/dotfiles/master/img/i3_ranger.png)
+![i3 atom](https://raw.github.com/mohlerm/dotfiles/master/img/i3_firefox.png)
+![i3 atom](https://raw.github.com/mohlerm/dotfiles/master/img/i3_atom.png)
+![i3 rofi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_rofi.png)
 ![i3 lock](https://raw.github.com/mohlerm/dotfiles/master/img/i3lock_black.png)
-
-# Sublime Color Theme
-
-See https://github.com/mohlerm/sublime-color-scheme-numix-thinkpad

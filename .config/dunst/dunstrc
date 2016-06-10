@@ -8,17 +8,17 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the '#' and following  would be interpreted as a comment.
-    foreground = "#9e9e9e"
-    background = "#333333"
+    foreground = "#b9c2cd"
+    background = "#2f343f"
     timeout = 10
 
 [urgency_normal]
-    foreground = "#f9f9f9"
-    background = "#333333"
+    foreground = "#ffffff"
+    background = "#2f343f"
     timeout = 10
 
 [urgency_critical]
-    background = "#333333"
-    foreground = "#f9f9f9"
+    background = "#2f343f"
+    foreground = "#34e2d4"
     timeout = 0
 

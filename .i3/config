@@ -13,16 +13,16 @@
 set $mod Mod4
 set $mod2 Mod1
 
-set $dark     #2d2d2d
-set $grey     #333333
-set $red      #EF2929
-set $green    #8ae234
-set $dblue    #3465a4
-set $blue     #729fcf
-set $lblue    #34e2d4
-set $lgrey    #dedede
-set $white    #f9f9f9
-set $dwhite   #9e9e9e
+# darkest ark color (use for small seperator bars
+set $dark     #262a33 
+# top bar color
+set $grey     #2f343f
+set $blue     #5294e2
+# some lighter grey
+set $lgrey    #3e424d 
+set $white    #ffffff
+# side panel color
+set $mgrey    #b9c2cd
 
 # enable gnome settings early to prevent theme bugs with starting apps
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
@@ -54,8 +54,8 @@ bindsym $mod+Shift+q kill
 bindsym mod1+F4 kill
 
 # start rofi (a program launcher like dmenu)
-bindsym $mod+d exec --no-startup-id rofi -show run
-bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
+bindsym $mod+d exec --no-startup-id rofi -show drun
+#bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
 # old code for dmenu
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$dwhite' -sb '$grey' -sf '$lgrey'
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
@@ -210,17 +210,17 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+  status_command i3status
 	colors {
         	background          $grey
-        	statusline          $lgrey
-		separator	    $grey
+        	statusline          $mgrey
+		      separator	          $grey
         	#separator           $lgrey
 		#		    border	background   text
-        	focused_workspace   $grey       $grey        $lgrey
-        	active_workspace    $grey       $grey        $dwhite
-        	inactive_workspace  $grey       $grey        $dwhite
-        	urgent_workspace    $grey        $red        $lgrey
+        	focused_workspace   $grey       $grey        $white
+        	active_workspace    $grey       $grey        $mgrey
+        	inactive_workspace  $grey       $grey        $mgrey
+        	urgent_workspace    $grey        $blue        $white
     }
 }
 
@@ -240,6 +240,8 @@ assign [class="Ts3client_linux_amd64"] $ws10
 assign [class="jetbrains-android-studio"] $ws3
 assign [class="Steam"] $ws7
 assign [class="Skype"] $ws10
+assign [class="Franz"] $ws10
+assign [class="crx_bikioccmkafdpakkkcpdbppfkghcmihk"] $ws10
 
 # disable borders for some applications
 for_window [class="^chromium$"] border none
@@ -269,10 +271,10 @@ bindsym $mod+b exec --no-startup-id firefox
 # Keybindings to switch to certain applications
 
 # set some nice colors      border     background  text seperator
-client.focused              $dark        $grey         $lgrey	$lgrey
-client.unfocused            $dark        $grey         $dwhite	$lgrey
-client.focused_inactive     $dark        $grey         $dwhite	$lgrey
-client.urgent               $dark        $grey         $dwhite	$lgrey
+client.focused              $dark        $grey         $white	$lgrey
+client.unfocused            $dark        $grey         $mgrey	$lgrey
+client.focused_inactive     $dark        $grey         $mgrey	$lgrey
+client.urgent               $dark        $grey         $mgrey	$lgrey
 
 exec --no-startup-id nm-applet
 
