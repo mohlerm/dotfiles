@@ -7,6 +7,9 @@ Using Arc GTK3 Theme
 Optimized to my personal use, feel free to edit to
 suit your needs
 
+Vim files are hosted in a separate repository:
+[github.com/mohlerm/vimfiles](https://github.com/mohlerm/vimfiles)
+
 # i3 Configuration
 
 ## Requirements
@@ -23,9 +26,9 @@ suit your needs
 * ttf-font-icons - icons for statusbar
 
 ### recommended
-* vim - basic text editor
-* atom - code editor
+* vim - code/text editor
 * firefox - browser
+* thunderbird - mail client
 * gnome-terminal - terminal emulator
 
 ##Basic Bindings
@@ -60,20 +63,20 @@ suit your needs
 * Super+Tab - workspace "back-and-forth"
 * Super+PageDown - focus next workspace 
 * Super+PageUp - focus previous workspace
-* Super+b - start google chrome
-* Super+c - start sublime-text
+* Super+b - start firefox
 * Print - make screenshots, see below for more information
 * Super+Shift+Minus - move focused window to scratchpad
 * Super+Minux - show scratchpad
+* Super+F1 - start pulseaudio volume control
 * Super+Escape - shutdown, reboot, lock interactively
 * Thinkpad special keys work as expected and labeled
 
 Check out the .i3/config for more details.
 
 ##Workspace Layout
-* 1: term: terminal (terminal: Super+Enter)
-* 2: www: browser (chrome: Super+b)
-* 3: three: coding (sublime: Super+c)
+* 1: term: terminal
+* 2: www: browser
+* 3: three: coding
 * 4: four: free
 * 5: five: free
 * 6: six: free
@@ -93,7 +96,7 @@ Check out the .i3/config for more details.
 ![i3 alsi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_alsi.png)
 ![i3 terminal](https://raw.github.com/mohlerm/dotfiles/master/img/i3_terminal.png)
 ![i3 ranger](https://raw.github.com/mohlerm/dotfiles/master/img/i3_ranger.png)
-![i3 atom](https://raw.github.com/mohlerm/dotfiles/master/img/i3_firefox.png)
+![i3 firefox](https://raw.github.com/mohlerm/dotfiles/master/img/i3_firefox.png)
 ![i3 atom](https://raw.github.com/mohlerm/dotfiles/master/img/i3_atom.png)
 ![i3 rofi](https://raw.github.com/mohlerm/dotfiles/master/img/i3_rofi.png)
 ![i3 lock](https://raw.github.com/mohlerm/dotfiles/master/img/i3lock_black.png)

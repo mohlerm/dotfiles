@@ -224,6 +224,7 @@ alias usd='sudo umount /mnt/sd'
 alias monon='xset -dpms'
 alias monoff='xset +dpms'
 alias trim='~/.trim'
+alias touchpad='~/.touchpad'
 alias powertop='sudo powertop'
 alias gping='ping 8.8.8.8'
 
@@ -232,13 +233,14 @@ alias monitor='xrandr --output LVDS1 --off --output DP1 --auto'
 alias dual='xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --auto'
 alias both='xrandr --output LVDS1 --auto --output DP1 --mode 1280x1080'
 alias pip='xrandr --output LVDS1 --auto --output DP1 --mode 1920x1080'
+alias presentation='xrandr --output LVDS1 --auto --right-of VGA1 --output VGA1 --auto'
 alias minidlnad='minidlnad -f /home/$USER/.config/minidlna/minidlna.conf -P /home/$USER/.config/minidlna/minidlna.pid'
 alias bt='./.bt'
 alias fixtime='ntpd -q'
 
 export EDITOR="vim"
 export BROWSER="firefox"
-export TESTJAVA="/home/marcel/cloud/ETH/6thSemesterFS15/BachelorThesis/hs-comp/build/linux-x86_64-normal-server-fastdebug/jdk"
+#export TESTJAVA="/home/marcel/cloud/ETH/6thSemesterFS15/BachelorThesis/hs-comp/build/linux-x86_64-normal-server-fastdebug/jdk"
 export GOPATH=~/go
 # ex - archive extractor
 # usage: ex <file>
@@ -293,9 +295,7 @@ alias new='clear && alsi'
 alias please='sudo $(history -p !!)'
 
 
-
 . ~/.bashsecret
 complete -r vim
 
 alsi
-
