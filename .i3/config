@@ -37,7 +37,7 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 #font pango:DejaVu Sans Mono 9
 #font pango: Cantarell Bold 10
 #font pango: Share Tech Bold 10
-font pango: Terminus, Icons 9
+font pango: xos4 Terminus, Icons 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -55,7 +55,7 @@ bindsym mod1+F4 kill
 
 # start rofi (a program launcher like dmenu)
 bindsym $mod+d exec --no-startup-id rofi -show drun
-#bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
+bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
 # old code for dmenu
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$dwhite' -sb '$grey' -sf '$lgrey'
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
@@ -244,10 +244,11 @@ assign [class="Franz"] $ws10
 assign [class="crx_bikioccmkafdpakkkcpdbppfkghcmihk"] $ws10
 
 # disable borders for some applications
-for_window [class="^chromium$"] border none
+for_window [class="^Chromium$"] border none
 for_window [class="^Firefox$"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="Nautilus"] border none
+for_window [class="^Spotify$"] border none
 
 # enable floating mode for some applications
 for_window [class="Steam" instance="Friends"] floating enable
@@ -347,10 +348,10 @@ mode "$mode_display" {
 }
 bindsym $mod+I mode "$mode_display"
 
-#bindsym XF86AudioNext exec --no-startup-id /usr/bin/mpc next
-#bindsym XF86AudioPrev exec --no-startup-id /usr/bin/mpc prev
-#bindsym XF86AudioStop exec --no-startup-id /usr/bin/mpc stop
-#bindsym XF86AudioPlay exec --no-startup-id /usr/bin/mpc toggle
+bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
+bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
+bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
+bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 
 bindsym $mod+Home exec --no-startup-id $HOME/.dock on
 bindsym $mod+End exec --no-startup-id $HOME/.dock off
