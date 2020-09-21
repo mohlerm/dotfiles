@@ -24,9 +24,6 @@ set $white    #ffffff
 # side panel color
 set $mgrey    #b9c2cd
 
-# enable gnome settings early to prevent theme bugs with starting apps
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
-
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -37,7 +34,8 @@ exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 #font pango:DejaVu Sans Mono 9
 #font pango: Cantarell Bold 10
 #font pango: Share Tech Bold 10
-font pango: xos4 Terminus, Icons 9
+#font pango: xos4 Terminus, Icons 9
+font pango: Terminus, Icons 9
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -51,11 +49,14 @@ bindsym $mod+Shift+Return exec --no-startup-id nautilus
 
 # kill focused window
 bindsym $mod+Shift+q kill
-bindsym mod1+F4 kill
+bindsym $mod+q kill
+bindsym $mod2+F4 kill
 
 # start rofi (a program launcher like dmenu)
 bindsym $mod+d exec --no-startup-id rofi -show drun
-bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
+#bindsym $mod+Shift+d exec --no-startup-id rofi -show ssh
+bindsym $mod+Shift+d exec --no-startup-id rofi-pass
+
 # old code for dmenu
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$dwhite' -sb '$grey' -sf '$lgrey'
 #bindsym $mod+d exec --no-startup-id dmenu_run -fn 'Terminus-10' -nb '$grey' -nf '$lgrey' -sb '$lgrey' -sf '$red'
@@ -123,7 +124,7 @@ set $ws5  "5: five"
 set $ws6  "6: six"
 set $ws7  "7: seven"
 set $ws8  "8: eight"
-set $ws9  "9: nine"
+set $ws9  "9: spfy"
 set $ws10 "10: com"
 
 # browser workspace preferes external monitor
@@ -234,18 +235,16 @@ bindsym $mod+Prior workspace prev
 
 # Assign some applications to certain workspaces
 # use xprop to figure out the class variable
+assign [class="Chromium"] $ws2
 assign [class="Firefox"] $ws2
-assign [class="Pidgin"] $ws10
 assign [class="Ts3client_linux_amd64"] $ws10
-assign [class="jetbrains-android-studio"] $ws3
 assign [class="Steam"] $ws7
 assign [class="Skype"] $ws10
-assign [class="Franz"] $ws10
 assign [class="crx_bikioccmkafdpakkkcpdbppfkghcmihk"] $ws10
 
 # disable borders for some applications
 for_window [class="^Chromium$"] border none
-for_window [class="^Firefox$"] border none
+for_window [class="Firefox"] border none
 for_window [class="^Thunderbird$"] border none
 for_window [class="Nautilus"] border none
 for_window [class="^Spotify$"] border none

@@ -142,7 +142,7 @@ if [ $UID -ne 0 ]; then
     alias root='sudo -s'
     alias reboot='sudo systemctl reboot'
     alias poweroff='sudo systemctl poweroff'
-    alias update='yaourt -Suya'
+    alias update='yay -Syu'
     alias netctl='sudo netctl'
     alias sano='sudo nano'
 fi
@@ -294,6 +294,24 @@ alias ranger='ranger-cd'
 alias new='clear && alsi'
 alias please='sudo $(history -p !!)'
 
+# git aliases
+alias ga='git add'
+alias gm='git add -u' # add 'modified'
+alias gb='git branch'
+alias gc='git commit'
+alias gca='git commit --amend'
+alias gcn='git commit --amend --no-edit'
+alias gco='git checkout'
+alias gd='git diff'
+alias gdt='git difftool'
+alias gl='git log'
+#alias gs='git status'
+
+alias git-this-origin='git remote -v | grep origin | head -1 | cut -d: -f2 | cut -d" " -f1'
+alias git-this-branch='git symbolic-ref --short HEAD'
+alias git-last-message='git log --pretty=%B -1'
+alias git-last-subject='git log --pretty=%s -1'
+alias git-last-body='git log --pretty=%b -1'
 
 . ~/.bashsecret
 complete -r vim
