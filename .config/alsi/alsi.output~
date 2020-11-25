@@ -1,0 +1,40 @@
+#!/usr/bin/perl
+
+# '%sTitle:%s %s'
+#  |    \   \  ` Value
+#  \     \   `-- End of BC (or start of NC)
+#   BC    ` Label
+
+# NC = normal color (color1)
+# BC = bold color   (color2)
+
+#-- Other valid options are:
+# USERNAME   - ex: {USERNAME => '%sUsername:%s %s'},
+# CPU_LOAD   - ex: {CPU_LOAD => '%sCPU load average:%s %s'},
+# INIT_MODE  - ex: {INIT_MODE => '%sInit mode:%s %s'},
+# OTHER      - ex: {OTHER => '%sResolution:%s 1024x768'},
+# COMMAND    - ex: {COMMAND => ['%sBinaries:%s %s', 'ls /usr/bin | wc -l']},
+# HARDCODED  - ex: {HARDCODED => "\e[1;37m\e[41mTHIS IS ALSI\e[0m"},
+
+# GTK3_THEME      - ex: {GTK3_THEME      => '%sGTK3 theme:%s %s'},
+# GTK3_ICON_THEME - ex: {GTK3_ICON_THEME => '%sGTK3 icon theme:%s %s'},
+# GTK3_FONT_NAME  - ex: {GTK3_FONT_NAME  => '%sGTK3 font name:%s %s'},
+
+[
+    {HARDCODED=> 'Thinkpad X1 Carbon Ivy Bridge'},   # Name
+    {OS       => '%sOS:%s %s'},          # Operating system
+    {HOSTNAME => '%sHostname:%s %s'},    # Hostname
+    {UPTIME   => '%sUptime:%s %s'},      # Uptime
+    {KERNEL   => '%sKernel:%s %s'},      # Kernel version
+    {SHELL    => '%sShell:%s %s'},       # Shell
+    {PACKAGES => '%sPackages:%s %s'},    # Number of installed packages
+    {WM_DE    => '%s:%s%s %s'},          # Window Manager or Desktop Environment
+
+    {GTK3_THEME      => '%sGTK3 theme:%s %s'},         # Gtk2 theme
+    {GTK3_ICON_THEME => '%sGTK3 icon theme:%s %s'},    # Gtk2 icon theme
+    {GTK3_FONT_NAME  => '%sGTK3 font name:%s %s'},     # Gtk2 font name
+
+    {CPU        => '%sCPU:%s %s'},		  # CPU name
+    {RAM        => '%sRAM:%s %s'},                # RAM usage
+    {PARTITIONS => undef},                        # Partitions goes here
+]

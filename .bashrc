@@ -313,7 +313,6 @@ alias git-last-message='git log --pretty=%B -1'
 alias git-last-subject='git log --pretty=%s -1'
 alias git-last-body='git log --pretty=%b -1'
 
-. ~/.bashsecret
 complete -r vim
 
 alsi

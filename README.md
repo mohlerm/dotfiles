@@ -2,7 +2,7 @@ dotfiles
 ========
 
 Arch Linux with i3 WM config
-running on a Thinkpad X1 Carbon
+running on a Thinkpad T14s
 Using Arc GTK3 Theme
 Optimized to my personal use, feel free to edit to
 suit your needs

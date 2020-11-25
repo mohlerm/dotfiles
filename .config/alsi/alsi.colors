@@ -1,0 +1,16 @@
+#!/usr/bin/perl
+
+# Colors for alsi
+
+scalar {
+         black   => {normal => "\e[0;30m", bold => "\e[1;30m"},
+         red     => {normal => "\e[0;31m", bold => "\e[1;31m"},
+         green   => {normal => "\e[0;32m", bold => "\e[1;32m"},
+         yellow  => {normal => "\e[0;33m", bold => "\e[1;33m"},
+         default => {normal => "\e[0;34m", bold => "\e[1;34m"},
+         blue    => {normal => "\e[0;34m", bold => "\e[1;34m"},
+         purple  => {normal => "\e[0;35m", bold => "\e[1;35m"},
+         cyan    => {normal => "\e[0;36m", bold => "\e[1;36m"},
+         white   => {normal => "\e[0;37m", bold => "\e[1;37m"},
+         reset   => "\e[0m",
+}

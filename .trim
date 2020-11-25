@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo fstrim -v /
-sudo fstrim -v /home
-sudo fstrim -v /var
-sudo ntpd -q
-sudo hwclock -w
+#sudo fstrim -v /
+#sudo fstrim -v /home
+#sudo fstrim -v /var
+#sudo ntpd -q
+#sudo hwclock -w
 sudo pkgfile -u

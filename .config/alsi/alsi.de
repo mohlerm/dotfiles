@@ -1,0 +1,12 @@
+#!/usr/bin/perl
+
+# PROCESS_NAME  =>  DESKTOP_ENVIRONMENT_NAME
+
+scalar {
+         'gnome-session' => 'GNOME',
+         'kdm'           => 'KDE',
+         'ksmserver'     => 'KDE',
+         'lxsession'     => 'LXDE',
+         'xfce4-session' => 'XFCE4',
+         'xfwm4'         => 'XFCE4',
+}

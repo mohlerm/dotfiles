@@ -96,7 +96,8 @@ bindsym $mod+g split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen toggle global
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -128,16 +129,16 @@ set $ws9  "9: spfy"
 set $ws10 "10: com"
 
 # browser workspace preferes external monitor
-workspace $ws1 output DP1
-workspace $ws2 output DP1
-workspace $ws3 output DP1
-workspace $ws4 output DP1
-workspace $ws5 output DP1
-workspace $ws6 output DP1
-workspace $ws7 output DP1
-workspace $ws8 output DP1
-workspace $ws9 output LVDS1
-workspace $ws10 output LVDS1
+workspace $ws1 output eDP
+workspace $ws2 output eDP
+workspace $ws3 output eDP
+workspace $ws4 output eDP
+workspace $ws5 output eDP
+workspace $ws6 output eDP
+workspace $ws7 output eDP
+workspace $ws8 output eDP
+workspace $ws9 output DisplayPort-3
+workspace $ws10 output DisplayPort-3
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -257,6 +258,7 @@ for_window [class="Steam"] floating enable
 for_window [class="Steam" title="^Steam$"] floating disable
 for_window [class="Pavucontrol"] floating enable
 for_window [window_role="pop-up"] floating enable
+for_window [class="xfreerdp"] floating enable
 
 # i3clock settings
 bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
@@ -277,13 +279,14 @@ client.focused_inactive     $dark        $grey         $mgrey	$lgrey
 client.urgent               $dark        $grey         $mgrey	$lgrey
 
 exec --no-startup-id nm-applet
+exec --no-startup-id dockd --daemon
 
 # pulse audio volume control
-bindsym XF86AudioRaiseVolume exec amixer -c 0 set Master 1+ && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec amixer -c 0 set Master 1- && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec amixer set Master toggle && killall -SIGUSR1 i3status
-bindsym XF86AudioMicMute exec --no-startup-id amixer set Capture toggle && killall -SIGUSR1 i3status
-bindsym XF86Launch1 exec --no-startup-id pavucontrol
+#bindsym XF86AudioRaiseVolume exec amixer -c 1 set Master 1+ && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && killall -SIGUSR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle && killall -SIGUSR1 i3status
 bindsym $mod+F1 exec --no-startup-id pavucontrol
 bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 5
@@ -351,9 +354,6 @@ bindsym XF86AudioNext exec --no-startup-id "dbus-send --print-reply --dest=org.m
 bindsym XF86AudioPrev exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 bindsym XF86AudioStop exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop"
 bindsym XF86AudioPlay exec --no-startup-id "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
-
-bindsym $mod+Home exec --no-startup-id $HOME/.dock on
-bindsym $mod+End exec --no-startup-id $HOME/.dock off
 
 # for later use
 # Fn+2 → XF86ScreenSaver
