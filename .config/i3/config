@@ -132,13 +132,13 @@ set $ws10 "10: com"
 workspace $ws1 output eDP
 workspace $ws2 output eDP
 workspace $ws3 output eDP
-workspace $ws4 output eDP
-workspace $ws5 output eDP
+workspace $ws4 output DisplayPort-4
+workspace $ws5 output DisplayPort-2
 workspace $ws6 output eDP
 workspace $ws7 output eDP
 workspace $ws8 output eDP
-workspace $ws9 output DisplayPort-3
-workspace $ws10 output DisplayPort-3
+workspace $ws9 output eDP
+workspace $ws10 output eDP
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -174,7 +174,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym $mod+o move workspace to output right
 
 # Put this window on the presentation output.
-bindsym $mod+p move container to output DP1
+bindsym $mod+p move container to output eDP
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -226,6 +226,8 @@ bar {
     }
 }
 
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 
 # next/previous workspace
 bindsym $mod2+Tab focus right
@@ -236,19 +238,18 @@ bindsym $mod+Prior workspace prev
 
 # Assign some applications to certain workspaces
 # use xprop to figure out the class variable
-assign [class="Chromium"] $ws2
-assign [class="Firefox"] $ws2
+#assign [class="Chromium$"] $ws1
+#assign [class="firefox"] $ws1
 assign [class="Ts3client_linux_amd64"] $ws10
 assign [class="Steam"] $ws7
-assign [class="Skype"] $ws10
 assign [class="crx_bikioccmkafdpakkkcpdbppfkghcmihk"] $ws10
 
 # disable borders for some applications
-for_window [class="^Chromium$"] border none
-for_window [class="Firefox"] border none
-for_window [class="^Thunderbird$"] border none
+for_window [class="Chromium$"] border none
+for_window [class="firefox$"] border none
+for_window [class="Thunderbird$"] border none
 for_window [class="Nautilus"] border none
-for_window [class="^Spotify$"] border none
+for_window [class="Spotify$"] border none
 
 # enable floating mode for some applications
 for_window [class="Steam" instance="Friends"] floating enable
@@ -261,7 +262,7 @@ for_window [window_role="pop-up"] floating enable
 for_window [class="xfreerdp"] floating enable
 
 # i3clock settings
-bindsym XF86ScreenSaver exec --no-startup-id i3lock -i ~/img/i3lock_black.png
+bindsym XF86ScreenSaver exec --no-startup-id betterlockscreen -l dim
 
 # suspend
 bindsym XF86Sleep exec --no-startup-id systemctl suspend
@@ -279,7 +280,6 @@ client.focused_inactive     $dark        $grey         $mgrey	$lgrey
 client.urgent               $dark        $grey         $mgrey	$lgrey
 
 exec --no-startup-id nm-applet
-exec --no-startup-id dockd --daemon
 
 # pulse audio volume control
 #bindsym XF86AudioRaiseVolume exec amixer -c 1 set Master 1+ && killall -SIGUSR1 i3status
@@ -288,8 +288,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% &&
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && killall -SIGUSR1 i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle && killall -SIGUSR1 i3status
 bindsym $mod+F1 exec --no-startup-id pavucontrol
-bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
 
 # display monitor settings
 exec --no-startup-id xset dpms 600 600 600
@@ -318,6 +318,8 @@ bindsym $mod+minus scratchpad show
 
 # set desktop wallpaper
 exec --no-startup-id sh ~/.fehbg
+# run autorandr and set wallpaper with postswitch
+exec --no-startup-id autorandr -c
 
 # shutdown, reboot, lock script
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown

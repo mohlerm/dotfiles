@@ -2,18 +2,13 @@
 lock() {
     #i3lock -c 333333
     #i3lock -i ~/img/archlinux-simplygrey-left_bottom.png
-    i3lock -i ~/img/i3lock_black.png
-}
-funlock() {
-    i3lock -u -p win -i ~/img/i3lock_fun.png
+    #i3lock -i ~/Pictures/lockscreen.png
+    betterlockscreen -l dim
 }
 case "$1" in
     lock)
         lock
         ;;
-    fun)
-        funlock
-        ;; 
     logout)
         i3-msg exit
         ;;

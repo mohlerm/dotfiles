@@ -32,4 +32,9 @@ exec i3
 #else
 #  echo "Invalid window manager specified"
 #fi
+
+setxkbmap -layout us
+
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
+xset -b

@@ -1,13 +1,12 @@
 #!/bin/sh
-#xfreerdp /v:bdpc60 /d:bd /u:mmohler /p:Uhi83883@ /monitors:2,1 /multimon -compression /rfx +clipboard
 if [ "$1" = "dual" ]; then
-  xrandr --output eDP --auto --left-of DisplayPort-4 --output DisplayPort-4 --auto --left-of DisplayPort-2 --output DisplayPort-2 --auto
+  xrandr --output eDP --auto --left-of DisplayPort-4 --output DisplayPort-4 --auto --left-of DisplayPort-3 --output DisplayPort-3 --auto
 fi
 if [ "$1" = "monitor" ]; then
   xrandr --output LVDS1 --off --output DP1 --auto
 fi
 if [ "$1" = "laptop" ]; then
-  xrandr --output eDP --auto --output DisplayPort-4 --off --output DisplayPort-2 --off
+  xrandr --output eDP --auto --output DisplayPort-4 --off --output DisplayPort-3 --off
 fi
 #xrandr --output LVDS1 --auto --right-of DP1 --output DP1 --mode 1920x1080 
 ~/.fehbg

@@ -34,7 +34,9 @@
     {GTK3_ICON_THEME => '%sGTK3 icon theme:%s %s'},    # Gtk2 icon theme
     {GTK3_FONT_NAME  => '%sGTK3 font name:%s %s'},     # Gtk2 font name
 
-    {CPU        => '%sCPU:%s %s'},		  # CPU name
+    #    {CPU        => '%sCPU:%s %s'},		  # CPU name
+    {OTHER        => '%sCPU:%sAMD Ryzen 7 PRO 4750U'},		  # CPU name
+    {OTHER        => '%sGPU:%sAMD Radeon RX Vega 7'},		  # GPU name
     {RAM        => '%sRAM:%s %s'},                # RAM usage
     {PARTITIONS => undef},                        # Partitions goes here
 ]
