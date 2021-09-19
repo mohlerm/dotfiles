@@ -1,0 +1,6 @@
+configuration {
+	font: "Terminus 9";
+	case-sensitive: false;
+	separator-style: "solid";
+    theme: "arc";
+}
