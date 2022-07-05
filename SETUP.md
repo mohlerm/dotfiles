@@ -285,6 +285,12 @@ AutoEnable=true
 timedatectl set-ntp true
 ```
 
+## Fwupd
+```
+sudo mkdir /boot/EFI
+systemctl restart fwupd.service
+sudo fwupdmgr update
+```
 
 # Sources
 https://wiki.archlinux.org/title/Installation_guide
