@@ -254,6 +254,8 @@ See https://wiki.archlinux.org/title/Power_management/Suspend_and_hibernate#Hibe
 ## Use TPM for LUKS
 ```
 # sudo systemd-cryptenroll --tpm2-device=auto --tpm2-pcrs=0+7 /dev/nvme0n1p2
+After firmware update you might want to delete the old tpm keys first
+# sudo systemd-cryptenroll --wipe-slot=tpm2  /dev/nvme0n1p2
 ```
 
 ## Pinentry
